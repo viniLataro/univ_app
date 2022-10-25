@@ -1,3 +1,14 @@
+<% if @student.errors.any? %>
+  <%= pluralize(@student.errors.count, "error") %>
+  prohibited your profile from being created
+  <ul>
+    <% @student.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+
 <div class="container">
   <div class="row center sign-up-form">
     <div class="col s12 m12 l12">
@@ -19,7 +30,7 @@
             </div> 
             <div class="row">
               <div class="input-field col12"> 
-                <%= f.submit "Submit", class: "waves-effect waves-light btn right" %>
+                <%= f.submit "Sign up", class: "waves-effect waves-light btn right" %>
               </div>
             </div>  
           <% end %>
